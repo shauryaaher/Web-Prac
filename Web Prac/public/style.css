@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#signOut {
+  display: none;
+}
+
+#toast {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 400px;
+  padding: 6px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, top 0.2s; visibility: 0.2s;
+}
+#toast-visible {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 400px;
+    padding: 6px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
+}
