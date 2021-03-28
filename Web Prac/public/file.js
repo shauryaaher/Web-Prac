@@ -1,5 +1,5 @@
 // Your web app's Firebase configuration
-//Please put your own Firebase Config.
+//Put your own Firebase config
 var firebaseConfig = {
   apiKey: "AIzaSyCtvhW0qWpIJn41bx54xTxgxVEmRFwAW-s",
   authDomain: "web-prac-12a96.firebaseapp.com",
@@ -33,8 +33,24 @@ messaging
 
 const authProvider = new firebase.auth.GoogleAuthProvider();
 const githubProvider = new firebase.auth.GithubAuthProvider();
+const microsoft = new firebase.auth.OAuthProvider("microsoft.com");
 
 const persistence = firebase.auth.Auth.Persistence.SESSION;
+
+signInWithMicrosoft.addEventListener("click", () => {
+  auth.signInWithPopup(microsoft)
+  .then((user) => {
+    console.log("Successfully signed in");
+    console.log(user);
+  })
+  .catch((error) => {
+    console.error(error);
+    Toast.show("An error occured while signing you in");
+    setTimeout(() => {
+      Toast.hide("An error occured while signing you in");
+    });
+  });
+});
 
 googleSignIn.addEventListener("click", () => {
   auth
@@ -115,6 +131,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("githubSignIn").style.display = "none";
     document.getElementById("guestUser").style.display = "none";
     document.getElementById("signOut").style.display = "block";
+    document.getElementById("signInWithMicrosoft").style.display = "none";
     document.getElementById("infoUser").innerHTML =
       "Greetings, " + (username = user.displayName);
   } else {
@@ -123,6 +140,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("githubSignIn").style.display = "block";
     document.getElementById("guestUser").style.display = "block";
     document.getElementById("signOut").style.display = "none";
+    document.getElementById("signInWithMicrosoft").style.display = "block";
     document.getElementById("infoUser").innerHTML = "";
   }
 });
