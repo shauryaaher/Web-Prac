@@ -36,7 +36,7 @@ const githubProvider = new firebase.auth.GithubAuthProvider();
 const microsoft = new firebase.auth.OAuthProvider("microsoft.com");
 
 const persistence = firebase.auth.Auth.Persistence.SESSION;
-
+//Signing in with Microsoft!
 signInWithMicrosoft.addEventListener("click", () => {
   auth.signInWithPopup(microsoft)
   .then((user) => {
@@ -51,7 +51,7 @@ signInWithMicrosoft.addEventListener("click", () => {
     });
   });
 });
-
+//Signing in with Google.
 googleSignIn.addEventListener("click", () => {
   auth
     .signInWithPopup(authProvider)
