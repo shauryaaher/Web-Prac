@@ -33,7 +33,23 @@ messaging
 
 const authProvider = new firebase.auth.GoogleAuthProvider();
 const githubProvider = new firebase.auth.GithubAuthProvider();
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
 const microsoft = new firebase.auth.OAuthProvider("microsoft.com");
+
+fbLogin.addEventListener("click", () => {
+  auth.signInWithPopup(facebookProvider)
+  .then((user) => {
+    console.log("Successfully signed in.");
+    console.log(user);    
+  })
+  .catch((error) => {
+    console.error(error);
+    Toast.show("An error occured while signing you in");
+    setTimeout(() => {
+    Toast.hide("An error occured while signing you in");
+    });
+  });
+});
 
 const persistence = firebase.auth.Auth.Persistence.SESSION;
 //Signing in with Microsoft!
@@ -132,6 +148,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("guestUser").style.display = "none";
     document.getElementById("signOut").style.display = "block";
     document.getElementById("signInWithMicrosoft").style.display = "none";
+    document.getElementById("fbLogin").style.display = "none";
     document.getElementById("infoUser").innerHTML =
       "Greetings, " + (username = user.displayName);
   } else {
@@ -141,6 +158,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("guestUser").style.display = "block";
     document.getElementById("signOut").style.display = "none";
     document.getElementById("signInWithMicrosoft").style.display = "block";
+    document.getElementById("fbLogin").style.display = "block";
     document.getElementById("infoUser").innerHTML = "";
   }
 });

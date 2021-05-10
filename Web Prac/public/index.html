@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>Welcome to Firebase Hosting</title>
-
-    <body>
-      <h1 id="infoUser"></h1>
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+          <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script defer src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-performance.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.3.0/firebase-performance.js"></script>
+    <script defer src="file.js"></script>
+  </head>
+    <body>
+      <h1 id="infoUser"></h1>
     <button id="googleSignIn">Sign In with Google</button><br>
     <button id="githubSignIn">Sign In with GitHub</button><br>
     <button id="signInWithMicrosoft">Sign In With Microsoft</button><br>
+    <button id="fbLogin">Login with Facebook</button><br>
     <button id="guestUser">Continue as guest</button><br>
     <button id="signOut">Sign out</button>
-     <script src="file.js"></script>
     </body>
 </html>
