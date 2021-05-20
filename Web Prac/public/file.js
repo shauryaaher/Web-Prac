@@ -33,23 +33,7 @@ messaging
 
 const authProvider = new firebase.auth.GoogleAuthProvider();
 const githubProvider = new firebase.auth.GithubAuthProvider();
-const facebookProvider = new firebase.auth.FacebookAuthProvider();
 const microsoft = new firebase.auth.OAuthProvider("microsoft.com");
-
-fbLogin.addEventListener("click", () => {
-  auth.signInWithPopup(facebookProvider)
-  .then((user) => {
-    console.log("Successfully signed in.");
-    console.log(user);    
-  })
-  .catch((error) => {
-    console.error(error);
-    Toast.show("An error occured while signing you in");
-    setTimeout(() => {
-    Toast.hide("An error occured while signing you in");
-    });
-  });
-});
 
 const persistence = firebase.auth.Auth.Persistence.SESSION;
 //Signing in with Microsoft!
@@ -138,8 +122,6 @@ auth
     console.error(error);
   });
 
-var username;
-
 auth.onAuthStateChanged((user) => {
   if (user != null) {
     //User is signed in
@@ -148,9 +130,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("guestUser").style.display = "none";
     document.getElementById("signOut").style.display = "block";
     document.getElementById("signInWithMicrosoft").style.display = "none";
-    document.getElementById("fbLogin").style.display = "none";
-    document.getElementById("infoUser").innerHTML =
-      "Greetings, " + (username = user.displayName);
+    document.getElementById("infoUser").innerHTML = `Greetings, ${user.displayName}`;
   } else {
     //User is not signed in
     document.getElementById("googleSignIn").style.display = "block";
